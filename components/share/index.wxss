@@ -74,12 +74,9 @@
     margin: 70rpx auto 0;
     width: 650rpx;
     height: 923rpx;
-    background-color: #ccc;
+    overflow: scroll;
 }
 
-/* .comp-share .testImg {
-    background-color: #ccc;
-} */
 
 .comp-share .btn-save {
     width:330rpx;
@@ -98,4 +95,10 @@
     font-size: 30rpx;
     color: #fff;
     text-align: center;
+}
+
+.comp-share .shareCanvas {
+    position: absolute;
+    left: 100000rpx;
+    top: -10000000rpx;
 }

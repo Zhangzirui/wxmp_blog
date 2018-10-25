@@ -1,6 +1,7 @@
 <view class="comp-share" wx:if="{{isShowShare}}">
-    <!-- <view class="mask" bindtap="onCloseShare"></view> -->
+    <view class="mask" bindtap="onCloseShare"></view>
     <block wx:if="{{!isShowZoneShare}}">
+    <!-- <block wx:if="{{false}}"> -->
         <view class="info">
             <slot></slot>
             <view wx:if="{{!defineAllInfo}}">赶紧分享给好友吧！</view>
@@ -23,11 +24,12 @@
     </block>
     <block wx:else>
         <view class="img-wrap">
-            <image src="{{tempFilePath}}" style="width:{{canvasW}}rpx;height:{{canvasH}}rpx;" />
+            <image src="https://s.qunarzz.com/vacation_react/wxapp/carp/carpShare_02.jpg"  style="width: 650rpx;height: 2418rpx;" />
+            <!-- <image src="{{tempFilePath}}" style="width:{{canvasW}}rpx;height:{{canvasH}}rpx;" /> -->
+            <!-- <image src="{{tempFilePath}}" style="width:{{canvasW}}rpx;height:2418rpx;" /> -->
         </view>
-        <!-- <canvas canvas-id="share" style="width:{{canvasW}}rpx;height:{{canvasH}}rpx; display: none" /> -->
-        <button class="btn-save">保存到本地</button>
+        <button class="btn-save" bindtap="onSaveImg">保存到本地</button>
         <view class="text">保存图片到手机后，您可到朋友圈分享该图片</view>
     </block>
-    <canvas canvas-id="share" style="width:{{canvasW}}rpx;height:{{canvasH}}rpx;display:none" />
+    <canvas class="shareCanvas" canvas-id="share" style="width:{{canvasW}}rpx;height:{{canvasH}}rpx;" />
 </view>

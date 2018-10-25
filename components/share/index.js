@@ -20,10 +20,11 @@ Component({
         shareData: {
             type: Object,
             value: {
-                wrapSrc: 'https://s.qunarzz.com/vacation_react/wxapp/carp/carpShare_v1.png',
+                wrapSrc: 'https://s.qunarzz.com/vacation_react/wxapp/carp/carpShare_02.jpg',
                 qrcode: 'https://b-wechatcentercp.qunarzz.com/b_wechatcenter_b_wechatcenter/15399320976685ed7d9fb3b274d2686903f25044d4cff.jpeg',
                 wrapSize: {
-                    h: 923,
+                    // h: 923,
+                    h: 2418,
                     w: 650
                 },
                 qrcodeSize: {
@@ -39,11 +40,12 @@ Component({
         isShowZoneShare: false,
         canvasH: 923,
         canvasW: FIX_WIDTH,
-        tempFilePath: 'https://s.qunarzz.com/vacation_react/wxapp/carp/banner_v1.jpg'
+        tempFilePath: ''
     },
     attached() {
         this.rectify();
         this.getTransformSize();
+        this.rectifyAuthorization();
     },
     methods: {
         draw() {
@@ -108,35 +110,59 @@ Component({
         onSaveImg() {
             const {canvasH, canvasW, shareData} = this.data;
             const {h: wrapH, w: wrapW} = shareData.wrapSize;
-            wx.canvasToTempFilePath({
-                x: 0,
-                y: 0,
-                width: canvasW,
-                height: canvasH,
-                destWidth: wrapW,
-                destHeight: wrapH,
-                canvasId: 'share',
-                success: (res) => {
-                    console.log(res);
-                    // wx.saveImageToPhotosAlbum({
-                    //     filePath: res.tempFilePath,
-                    //     success: () => {
-                    //         wx.showToast({
-                    //             title: '图片保存成功'
-                    //         });
-                    //     },
-                    //     fail: () => {
-                    //         wx.showToast({
-                    //             icon: 'none',
-                    //             title: '图片保存失败'
-                    //         });
-                    //     }
-                    // });
+
+            if (this.writePhotosAlbum === false) {
+                wx.showModal({
+                    title: '是否打开设置页面',
+                    content: '需要获取您保存图片到手机的权限认可，请允许打开设置页面进行授权',
+                    success: (res) => {
+                        if (res.confirm) {
+                            wx.openSetting({
+                                complete: () => {
+                                    this.rectifyAuthorization();
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+
+            wx.authorize({
+                scope: 'scope.writePhotosAlbum',
+                success: () => {
+                    wx.canvasToTempFilePath({
+                        x: 0,
+                        y: 0,
+                        width: canvasW,
+                        height: canvasH,
+                        destWidth: wrapW,
+                        destHeight: wrapH,
+                        canvasId: 'share',
+                        success: (res) => {
+                            wx.saveImageToPhotosAlbum({
+                                filePath: res.tempFilePath,
+                                success: () => {
+                                    wx.showToast({
+                                        title: '图片保存成功'
+                                    });
+                                },
+                                fail: () => {
+                                    wx.showToast({
+                                        icon: 'none',
+                                        title: '图片保存失败'
+                                    });
+                                }
+                            });
+                        },
+                        complete: () => {
+                            this.onCloseShare();
+                        }
+                    }, this);
                 },
                 complete: () => {
-                    this.onCloseShare();
+                    this.rectifyAuthorization();
                 }
-            }, this);
+            });
         },
         onCloseShare() {
             this.onToggleZoneShare();
@@ -146,18 +172,12 @@ Component({
             let open = false;
 
             if (e && e.currentTarget) {
-                open = e.currentTarget.dataset.open;
+                open = e.currentTarget.dataset.open || false;
             }
 
-            if (open) {
-                this.setData({
-                    isShowZoneShare: true
-                });
-            } else {
-                this.setData({
-                    isShowZoneShare: false
-                });
-            }
+            this.setData({
+                isShowZoneShare: open
+            });
         },
         rectify() {
             wx.getSystemInfo({
@@ -171,6 +191,7 @@ Component({
             const {h: wrapH, w: wrapW} = wrapSize;
             const {h: qrcodeH, w: qrcodeW, left: qrcodeLeft, top: qrcodeTop} = qrcodeSize;
             const imageRatio = wrapW / FIX_WIDTH;
+
             this.size = {
                 wrapW: FIX_WIDTH,
                 wrapH: wrapH * imageRatio,
@@ -182,6 +203,11 @@ Component({
             this.setData({
                 canvasH: wrapH * imageRatio
             });
+        },
+        rectifyAuthorization() {
+            wx.getSetting({success: (res) => {
+                this.writePhotosAlbum = res.authSetting['scope.writePhotosAlbum'];
+            }});
         }
     }
 });

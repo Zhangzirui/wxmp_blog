@@ -1,15 +1,75 @@
 <view class="home-page {{isDisableScroll ? 'fixPage' : ''}}">
     <view class="hd flex-col">
         <image class="avatar" animation="{{avatarAnimation}}"></image>
-        <view class="nickname">{{selfInfo.nickname}}</view>
+        <view class="nickname" animation="{{nameAnimation}}">{{selfInfo.nickname}}</view>
         <view class="blog-info">我的前端实验室</view>
     </view>
     <view class="bd">
-        <view class="bd-nav">
-            
+        <view class="article">
+            <view class="article-hd flex-align-center">
+                <view class="type">原</view>
+                <view class="title">小程序学习</view>
+                <view class="tag">
+                    <text class="key">最新修改：</text>2018-10-24 10:10:10
+                </view>
+            </view>
+            <view class="article-bd">这是一个demo</view>
+            <view class="article-ft flex-align-center">
+                <view class="tag">
+                    2018-10-24 10:10:10
+                </view>
+                <view class="tag">
+                    <text class="key">阅读数：</text>10
+                </view>
+                <view class="tag">
+                    <text class="key">评论数：</text>15
+                </view>
+            </view>
+        </view>
+        <view class="article">
+            <view class="article-hd flex-align-center">
+                <view class="type">原</view>
+                <view class="title">小程序学习</view>
+                <view class="tag">
+                    <text class="key">最新修改：</text>2018-10-24 10:10:10
+                </view>
+            </view>
+            <view class="article-bd">这是一个demo</view>
+            <view class="article-ft flex-align-center">
+                <view class="tag">
+                    2018-10-24 10:10:10
+                </view>
+                <view class="tag">
+                    <text class="key">阅读数：</text>10
+                </view>
+                <view class="tag">
+                    <text class="key">评论数：</text>15
+                </view>
+            </view>
+        </view>
+        <view class="article">
+            <view class="article-hd flex-align-center">
+                <view class="type">原</view>
+                <view class="title">小程序学习</view>
+                <view class="tag">
+                    <text class="key">最新修改：</text>2018-10-24 10:10:10
+                </view>
+            </view>
+            <view class="article-bd">这是一个demo</view>
+            <view class="article-ft flex-align-center">
+                <view class="tag">
+                    2018-10-24 10:10:10
+                </view>
+                <view class="tag">
+                    <text class="key">阅读数：</text>10
+                </view>
+                <view class="tag">
+                    <text class="key">评论数：</text>15
+                </view>
+            </view>
         </view>
     </view>
-    <!-- <button bindtap="toggleShare" data-open="1">test</button> -->
+    <button bindtap="toggleShare" data-open="1">test</button>
 </view>
 
-<!-- <comp-share isShowShare="{{isShowShare}}" bindcloseshare="toggleShare"></comp-share> -->
+<comp-share isShowShare="{{isShowShare}}" bindcloseshare="toggleShare"></comp-share>

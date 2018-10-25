@@ -1,8 +1,10 @@
 @import '../../app.wxss';
 
 .home-page {
+    position: relative;
     min-height: 100vh;
     font-size: 30rpx;
+    color: #000;
 }
 
 .hd {
@@ -36,8 +38,81 @@
 }
 
 .bd {
-    margin-top: 600rpx;
+    position: absolute;
+    top: 600rpx;
     padding: 30rpx;
+    height: 1000rpx;
+    /* background: red; */
+    width: 100%;
+    box-sizing: border-box;
 }
+
+.article {
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 12rpx 8rpx -8rpx rgba(0, 0, 0, 0.2);
+}
+
+.article-hd {
+    width: 100%;
+    height: 60rpx;
+    padding: 50rpx 0 30rpx;
+    line-height: 60rpx;
+}
+
+.article-hd .type {
+    width: 50rpx;
+    height: 50rpx;
+    font-size: 26rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border-radius: 50%;
+    color: rgb(0, 180, 108);
+    border: 2rpx solid;
+    box-sizing: border-box;
+}
+
+.article-hd .type.reprinted {
+    color: #f60;
+    border: 2rpx solid #f60;
+}
+
+.article-hd .title {
+    padding-left: 20rpx;
+    font-size: 40rpx;
+    font-weight: bold;
+}
+
+.article .tag {
+    font-size: 26rpx;
+    color: #666;
+}
+
+.article .tag .key {
+    padding-left: 30rpx;
+    color: #9e9e9e;
+}
+
+.article-bd {
+    display: -webkit-box;
+    font-size: 34rpx;
+    line-height: 45rpx;
+    width: 100%;
+    max-height: 90rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: #333;
+}
+
+.article-ft {
+    width: 100%;
+    padding: 30rpx 0 15rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
 
 
