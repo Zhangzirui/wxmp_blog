@@ -1,0 +1,33 @@
+<view class="comp-share" wx:if="{{isShowShare}}">
+    <!-- <view class="mask" bindtap="onCloseShare"></view> -->
+    <block wx:if="{{!isShowZoneShare}}">
+        <view class="info">
+            <slot></slot>
+            <view wx:if="{{!defineAllInfo}}">赶紧分享给好友吧！</view>
+        </view>
+        <view class="main">
+            <view class="nav">
+                <button class="btn" open-type="share">
+                    <image class="img" src="https://img1.qunarzz.com/order/comp/1805/81/40d89ab572812302.png" mode="aspectFill" />
+                    <view>微信好友</view>
+                </button>
+                <button class="btn zone" data-open="1" bindtap="onToggleZoneShare">
+                    <image class="img" src="https://img1.qunarzz.com/order/comp/1805/85/e1812d78c7b7ea02.png" mode="aspectFill" />
+                    <view>朋友圈</view>
+                </button>
+            </view>
+            <view class="cancel" bindtap="onCloseShare">
+                取消
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="img-wrap">
+            <image src="{{tempFilePath}}" style="width:{{canvasW}}rpx;height:{{canvasH}}rpx;" />
+        </view>
+        <!-- <canvas canvas-id="share" style="width:{{canvasW}}rpx;height:{{canvasH}}rpx; display: none" /> -->
+        <button class="btn-save">保存到本地</button>
+        <view class="text">保存图片到手机后，您可到朋友圈分享该图片</view>
+    </block>
+    <canvas canvas-id="share" style="width:{{canvasW}}rpx;height:{{canvasH}}rpx;display:none" />
+</view>

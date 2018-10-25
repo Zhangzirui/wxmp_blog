@@ -1,0 +1,10 @@
+<view class="page-wrap">
+    <view class="hd flex-col">
+        <image class="avatar"></image>
+        <view class="nickname"></view>
+        <view class="blog-info">我的前端实验室</view>
+    </view>
+    <view class="bd">
+        
+    </view>
+</view>

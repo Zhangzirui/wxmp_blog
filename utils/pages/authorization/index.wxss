@@ -1,0 +1,18 @@
+.authorization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.info {
+    margin: 200rpx 0 40rpx;
+    max-width: 500rpx;
+    text-align: center;
+    color: #666;
+}
+
+.btn-auth {
+    width: 500rpx;
+    font-size: 34rpx;
+}

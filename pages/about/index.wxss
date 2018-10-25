@@ -1,0 +1,16 @@
+@import '../../app.wxss';
+.hd {
+    height: 600rpx;
+    align-items: center;
+}
+
+.hd .avatar {
+    margin: 160rpx 0 40rpx;
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+}
+
+.hd .blog-info {
+    max-width: 550rpx;
+}

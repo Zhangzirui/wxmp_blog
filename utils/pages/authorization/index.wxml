@@ -1,0 +1,11 @@
+<view class="authorization">
+    <view class="info">
+        <view>为了接下来更好的体验，</view>
+        <view>请点击下方按钮进行微信授权登录</view>
+    </view>
+    <button
+        type="primary"
+        open-type="getUserInfo"
+        class="btn-auth"
+        bindgetuserinfo="getUserInfo">微信授权登录</button>
+</view>

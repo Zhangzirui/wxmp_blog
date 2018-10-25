@@ -1,0 +1,15 @@
+<view class="home-page {{isDisableScroll ? 'fixPage' : ''}}">
+    <view class="hd flex-col">
+        <image class="avatar" animation="{{avatarAnimation}}"></image>
+        <view class="nickname">{{selfInfo.nickname}}</view>
+        <view class="blog-info">我的前端实验室</view>
+    </view>
+    <view class="bd">
+        <view class="bd-nav">
+            
+        </view>
+    </view>
+    <!-- <button bindtap="toggleShare" data-open="1">test</button> -->
+</view>
+
+<!-- <comp-share isShowShare="{{isShowShare}}" bindcloseshare="toggleShare"></comp-share> -->

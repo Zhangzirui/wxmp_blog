@@ -1,0 +1,13 @@
+{
+    "pages":[
+      "pages/home/index",
+      "utils/pages/authorization/index"
+    ],
+    "window":{
+      "backgroundTextStyle":"light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "WeChat",
+      "navigationBarTextStyle":"black"
+    }
+  }
+  
