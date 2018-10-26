@@ -2,7 +2,7 @@
     <view class="hd flex-col">
         <image class="avatar" animation="{{avatarAnimation}}"></image>
         <view class="nickname" animation="{{nameAnimation}}">{{selfInfo.nickname}}</view>
-        <view class="blog-info">我的前端实验室</view>
+        <view class="blog-info" animation="{{infoAnimation}}">我的前端实验室</view>
     </view>
     <view class="bd">
         <view class="article">
@@ -69,7 +69,7 @@
             </view>
         </view>
     </view>
-    <button bindtap="toggleShare" data-open="1">test</button>
+    <!-- <button bindtap="toggleShare" data-open="1">test</button> -->
 </view>
 
 <comp-share isShowShare="{{isShowShare}}" bindcloseshare="toggleShare"></comp-share>

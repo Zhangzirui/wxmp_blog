@@ -5,6 +5,7 @@
     min-height: 100vh;
     font-size: 30rpx;
     color: #000;
+    background: #333;
 }
 
 .hd {
@@ -15,7 +16,7 @@
     height: 600rpx;
     align-items: center;
     color: #fff;
-    background: #666;
+    background: transparent;
 }
 
 .hd .avatar {
@@ -42,7 +43,7 @@
     top: 600rpx;
     padding: 30rpx;
     height: 1000rpx;
-    /* background: red; */
+    background: #fff;
     width: 100%;
     box-sizing: border-box;
 }
